@@ -1,0 +1,34 @@
+# Virtual environment
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# CatBoost training artifacts
+catboost_info/
+
+# Temp/test files
+_test_*.py
+
+# IDE / editor
+.qodo/
+.vscode/
+.idea/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Large data files - included for reproducibility
+# data/features/*.npy
+# data/holdout/*.npy
+# data/processed/*.npy
+
+# Model binaries - included for reproducibility
+# models/*.pkl
+
+# Byte-compiled
+*.py[cod]
+*$py.class

@@ -1,0 +1,24 @@
+FINAL MODEL HOLDOUT EVALUATION — Stage 2 — Jailbreak
+==================================================
+Model            : LogisticRegression
+CV F1-Macro      : 0.9859
+Holdout Samples  : 632
+
+Accuracy         : 0.9968
+F1-Macro         : 0.9942
+Balanced Accuracy: 0.9942
+MCC              : 0.9885
+ROC-AUC          : 0.9997
+Precision        : 0.9981
+Recall           : 0.9981
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.99      0.99      0.99       104
+           1       1.00      1.00      1.00       528
+
+    accuracy                           1.00       632
+   macro avg       0.99      0.99      0.99       632
+weighted avg       1.00      1.00      1.00       632
+

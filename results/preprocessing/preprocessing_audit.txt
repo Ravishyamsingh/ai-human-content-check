@@ -1,0 +1,136 @@
+PREPROCESSING AUDIT REPORT
+Generated: 2026-02-24 01:46:16
+======================================================================
+
+PREPROCESSING PIPELINE START
+Timestamp: 2026-02-24 01:46:10
+
+Stage 1 columns: ['text', 'label']
+Stage 2 columns: ['text', 'label']
+
+══════════════════════════════════════════════════════════════════════
+  PREPROCESSING: Stage 1 — AI vs Human
+══════════════════════════════════════════════════════════════════════
+
+  Raw shape          : (36744, 2)
+  Text column        : 'text'
+  Label column       : 'label'
+
+  RAW class distribution:
+    Class ai: 18,372 samples
+    Class human: 18,372 samples
+  Imbalance ratio    : 1.00:1
+
+  --- Cleaning Steps ---
+
+  Step 1 | Select text + label columns
+    Rows retained: 36,744
+
+  Step 2 | Convert text column to string dtype
+    Applied to all 36,744 rows
+
+  Step 3 | Fix encoding artifacts
+    HTML entities decoded, invisible unicode removed,
+    whitespace normalized. No stylistic changes.
+
+  Step 4 | Remove null rows
+    Before: 36,744  |  After: 36,744  |  Removed: 0
+
+  Step 5 | Remove exact duplicates (MD5 hash comparison)
+    Before: 36,744  |  After: 28,747  |  Removed: 7,997 (21.76%)
+
+  Step 6 | Remove texts with fewer than 10 words
+    Rationale: < 10 words = insufficient stylometric signal
+    Before: 28,747  |  After: 28,594  |  Removed: 153 (0.53%)
+  Step 7 [Label encoding]: String→int mapping applied: {'ai': 0, 'human': 1}
+    Final label values: [np.int64(0), np.int64(1)]
+
+  ────────────────────────────────────────────────────────────
+  FINAL SUMMARY: Stage 1 — AI vs Human
+  ────────────────────────────────────────────────────────────
+  Final shape: (28594, 2)
+
+  CLEAN class distribution:
+    Class 0: 13,171 samples
+    Class 1: 15,423 samples
+  Imbalance ratio (clean): 1.17:1
+
+  Word count stats (clean dataset):
+    Mean   : 153.6
+    Median : 138.0
+    Std    : 129.6
+    Min    : 10
+    Max    : 2038
+
+  Total removed: 8,150 samples (22.18% of raw)
+  Total retained: 28,594 samples (77.82% of raw)
+
+  ✅ Stage 1 clean CSV → data/processed/stage1_clean.csv
+
+══════════════════════════════════════════════════════════════════════
+  PREPROCESSING: Stage 2 — Jailbreak Detection
+══════════════════════════════════════════════════════════════════════
+
+  Raw shape          : (11242, 2)
+  Text column        : 'text'
+  Label column       : 'label'
+
+  RAW class distribution:
+    Class safe: 4,690 samples
+    Class unsafe: 6,552 samples
+  Imbalance ratio    : 1.40:1
+
+  --- Cleaning Steps ---
+
+  Step 1 | Select text + label columns
+    Rows retained: 11,242
+
+  Step 2 | Convert text column to string dtype
+    Applied to all 11,242 rows
+
+  Step 3 | Fix encoding artifacts
+    HTML entities decoded, invisible unicode removed,
+    whitespace normalized. No stylistic changes.
+
+  Step 4 | Remove null rows
+    Before: 11,242  |  After: 11,242  |  Removed: 0
+
+  Step 5 | Remove exact duplicates (MD5 hash comparison)
+    Before: 11,242  |  After: 10,379  |  Removed: 863 (7.68%)
+
+  Step 6 | Remove texts with fewer than 10 words
+    Rationale: < 10 words = insufficient stylometric signal
+    Before: 10,379  |  After: 6,314  |  Removed: 4,065 (39.17%)
+  Step 7 [Label encoding]: String→int mapping applied: {'safe': 0, 'unsafe': 1}
+    Final label values: [np.int64(0), np.int64(1)]
+
+  ────────────────────────────────────────────────────────────
+  FINAL SUMMARY: Stage 2 — Jailbreak Detection
+  ────────────────────────────────────────────────────────────
+  Final shape: (6314, 2)
+
+  CLEAN class distribution:
+    Class 0: 1,039 samples
+    Class 1: 5,275 samples
+  Imbalance ratio (clean): 5.08:1
+
+  Word count stats (clean dataset):
+    Mean   : 180.0
+    Median : 67.0
+    Std    : 321.8
+    Min    : 10
+    Max    : 6326
+
+  Total removed: 4,928 samples (43.84% of raw)
+  Total retained: 6,314 samples (56.16% of raw)
+
+  ✅ Stage 2 clean CSV → data/processed/stage2_clean.csv
+
+══════════════════════════════════════════════════════════════════════
+  CROSS-DATASET CONTAMINATION CHECK
+══════════════════════════════════════════════════════════════════════
+  Checking if any Stage 1 texts appear in Stage 2...
+  Stage 1 unique texts : 28,594
+  Stage 2 unique texts : 6,314
+  Overlapping texts    : 0
+  ✅ RESULT: No cross-contamination detected. Datasets are clean.

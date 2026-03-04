@@ -1,0 +1,24 @@
+FINAL MODEL HOLDOUT EVALUATION — Stage 1 — AI vs Human
+==================================================
+Model            : XGBoost
+CV F1-Macro      : 0.9933
+Holdout Samples  : 2860
+
+Accuracy         : 0.9941
+F1-Macro         : 0.9940
+Balanced Accuracy: 0.9940
+MCC              : 0.9880
+ROC-AUC          : 0.9997
+Precision        : 0.9948
+Recall           : 0.9942
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.99      0.99      0.99      1317
+           1       0.99      0.99      0.99      1543
+
+    accuracy                           0.99      2860
+   macro avg       0.99      0.99      0.99      2860
+weighted avg       0.99      0.99      0.99      2860
+
