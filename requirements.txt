@@ -1,18 +1,42 @@
-datasets
-pandas
-numpy
-scikit-learn
-imbalanced-learn
-xgboost
-lightgbm
-catboost
-matplotlib
-seaborn
-spacy
-transformers
-torch
-sentence-transformers
-streamlit
-joblib
-scipy
-tqdm
+# ── Core ML & Data ──────────────────────────────────────
+numpy==2.4.2
+pandas==2.3.3
+scipy==1.17.1
+scikit-learn==1.8.0
+joblib==1.5.3
+
+# ── Boosting / Ensemble Models ──────────────────────────
+xgboost==3.2.0
+lightgbm==4.6.0
+catboost==1.2.10
+imbalanced-learn==0.14.1
+
+# ── Deep Learning & Transformers ────────────────────────
+torch==2.10.0
+transformers==5.2.0
+sentence-transformers==5.2.3
+tokenizers==0.22.2
+safetensors==0.7.0
+huggingface-hub==1.5.0
+datasets==4.6.1
+
+# ── NLP ─────────────────────────────────────────────────
+spacy==3.8.11
+nltk==3.9.3
+
+# ── Visualization ──────────────────────────────────────
+matplotlib==3.10.8
+seaborn==0.13.2
+pillow==12.1.1
+
+# ── Web App ─────────────────────────────────────────────
+streamlit==1.54.0
+altair==6.0.0
+
+# ── Utilities ───────────────────────────────────────────
+tqdm==4.67.3
+protobuf==6.33.5
+
+# ── Post-install steps (run after pip install) ──────────
+# python -m spacy download en_core_web_sm
+# python -c "import nltk; nltk.download('stopwords')"
