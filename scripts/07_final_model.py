@@ -224,17 +224,17 @@ if __name__ == "__main__":
     train_final_model(
         X2, y2,
         screening_csv   = "results/stage2/screening_results.csv",
-        model_path      = "models/stage2_jailbreak.pkl",
+        model_path      = "models/stage2_unsafe.pkl",
         holdout_X_path  = "data/holdout/stage2_holdout_X.npy",
         holdout_y_path  = "data/holdout/stage2_holdout_y.npy",
         report_path     = "results/stage2/holdout_report.txt",
-        stage_name      = "Stage 2 — Jailbreak"
+        stage_name      = "Stage 2 — Unsafe"
     )
 
     print(f"\n{'='*60}")
     print(f"  ALL DONE")
     print(f"  models/stage1_authorship.pkl")
-    print(f"  models/stage2_jailbreak.pkl")
+    print(f"  models/stage2_unsafe.pkl"))
     print(f"  results/stage1/holdout_report.txt")
     print(f"  results/stage2/holdout_report.txt")
     print(f"{'='*60}")

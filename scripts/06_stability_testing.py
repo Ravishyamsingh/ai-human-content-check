@@ -407,7 +407,7 @@ if __name__ == "__main__":
     run_stability_testing(
         X2, y2,
         screening_csv = "results/stage2/screening_results.csv",
-        stage_name    = "Stage 2 — Jailbreak Detection",
+        stage_name    = "Stage 2 — Unsafe Prompt Detection",
         out_dir       = "results/stage2"
     )
 

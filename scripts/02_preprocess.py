@@ -422,7 +422,7 @@ if __name__ == "__main__":
         df2_raw,
         text_col   = TEXT_COL_S2,
         label_col  = LABEL_COL_S2,
-        stage_name = "Stage 2 — Jailbreak Detection",
+        stage_name = "Stage 2 — Unsafe Prompt Detection",
         min_words  = 10
     )
     df2_clean.to_csv("data/processed/stage2_clean.csv", index=False)
@@ -431,8 +431,8 @@ if __name__ == "__main__":
     plot_before_after(
         df2_raw, df2_clean,
         label_col_raw = LABEL_COL_S2,
-        stage_name    = "Stage 2 — Jailbreak Detection",
-        label_names   = {0: "Safe", 1: "Jailbreak"},
+        stage_name    = "Stage 2 — Unsafe Prompt Detection",
+        label_names   = {0: "Safe", 1: "Unsafe"},
         out_dir       = "results/preprocessing"
     )
 

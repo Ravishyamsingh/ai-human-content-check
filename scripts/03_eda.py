@@ -18,7 +18,7 @@
 ║    G. Word frequency analysis (top 30 per class)             ║
 ║    H. Entropy comparisons                                    ║
 ║    I. Structural signal comparisons                          ║
-║    J. Jailbreak-specific keyword analysis (Stage 2 only)     ║
+║    J. Unsafe-prompt keyword analysis (Stage 2 only)          ║
 ║    K. Correlation heatmap of all computed features           ║
 ║    L. Statistical significance summary table                 ║
 ╚══════════════════════════════════════════════════════════════╝
@@ -520,10 +520,10 @@ def run_full_eda(df, stage_name, out_dir, label_names):
 
 
     # ══════════════════════════════════════════════════════════
-    # SECTION I — JAILBREAK-SPECIFIC KEYWORDS (Stage 2 only)
+    # SECTION I — UNSAFE-PROMPT KEYWORDS (Stage 2 only)
     # ══════════════════════════════════════════════════════════
-    if "jailbreak" in stage_name.lower() or "stage2" in out_dir.lower() or "stage_2" in out_dir.lower():
-        print(f"\n  Section I: Jailbreak Keyword Analysis")
+    if "unsafe" in stage_name.lower() or "stage2" in out_dir.lower() or "stage_2" in out_dir.lower():
+        print(f"\n  Section I: Unsafe Prompt Keyword Analysis")
 
         keywords = [
             "ignore", "act as", "bypass", "roleplay", "pretend",
@@ -557,7 +557,7 @@ def run_full_eda(df, stage_name, out_dir, label_names):
         ax.set_xticks(x)
         ax.set_xticklabels(keywords, rotation=45, ha="right", fontsize=9)
         ax.set_ylabel("Proportion of texts containing keyword")
-        ax.set_title(f"{stage_name} — I: Jailbreak Keyword Presence by Class",
+        ax.set_title(f"{stage_name} — I: Unsafe Prompt Keyword Presence by Class",
                      fontsize=12, fontweight="bold")
         ax.legend()
         plt.tight_layout()
@@ -675,14 +675,14 @@ if __name__ == "__main__":
         label_names= {0: "Human", 1: "AI"}
     )
 
-    # ── STAGE 2: Jailbreak ───────────────────────────────────
+    # ── STAGE 2: Unsafe Prompt Detection ───────────────────────────────
     print("\nLoading Stage 2...")
     df2 = pd.read_csv("data/processed/stage2_clean.csv")
     run_full_eda(
         df        = df2,
-        stage_name= "Stage 2 — Jailbreak Detection",
+        stage_name= "Stage 2 — Unsafe Prompt Detection",
         out_dir   = "results/stage2/eda",
-        label_names= {0: "Safe", 1: "Jailbreak"}
+        label_names= {0: "Safe", 1: "Unsafe"}
     )
 
     print("\n" + "="*70)

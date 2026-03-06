@@ -66,9 +66,9 @@ if __name__ == "__main__":
         "results/stage1"
     )
     evaluate_on_holdout(
-        "models/stage2_jailbreak.pkl",
+        "models/stage2_unsafe.pkl",
         "data/holdout/stage2_holdout_X.npy",
         "data/holdout/stage2_holdout_y.npy",
-        "Stage 2 - Jailbreak",
+        "Stage 2 - Unsafe",
         "results/stage2"
     )

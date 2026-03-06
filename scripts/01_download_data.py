@@ -25,7 +25,7 @@ df1.to_csv("data/raw/stage1_raw.csv", index=False)
 print("✅ Stage 1 saved → data/raw/stage1_raw.csv")
 
 # ─────────────────────────────────────────────
-# STAGE 2 — Jailbreak Detection
+# STAGE 2 — Unsafe Prompt Detection
 # ─────────────────────────────────────────────
 print("\n⬇️  Downloading Stage 2 dataset...")
 ds2 = load_dataset("BallAdMyFi/jailbreaking_prompt_v2")

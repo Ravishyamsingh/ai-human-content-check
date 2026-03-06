@@ -305,7 +305,7 @@ if __name__ == "__main__":
     X2 = np.load("data/processed/stage2_features.npy")
     y2 = np.load("data/processed/stage2_labels.npy")
 
-    screen_models(X2, y2, "Stage 2 — Jailbreak", "results/stage2")
+    screen_models(X2, y2, "Stage 2 — Unsafe", "results/stage2")
 
     total_mins = (time.time() - total_start) / 60
     print(f"\n{'='*60}")
